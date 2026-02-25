@@ -62,7 +62,7 @@ def solve_question_system(
     # h[n] = (1/2) * sum_{k=0..inf} (a^2)^k * delta[n-2k]
     k = sp.symbols("k", integer=True, nonnegative=True)
     impulse_response = sp.Sum(
-        sp.Rational(1, 2) * (a**2) ** k * sp.KroneckerDelta(n - 2 * k), (k, 0, sp.oo)
+        sp.Rational(1, 2) * (a**2) ** k * sp.KroneckerDelta(n, 2 * k), (k, 0, sp.oo)
     )
 
     return ZTransformSolution(
